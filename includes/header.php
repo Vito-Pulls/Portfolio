@@ -1,3 +1,6 @@
+<?php
+$pagina_actual = basename($_SERVER['PHP_SELF']);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,15 +10,24 @@
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
+
 <header class="site-header">
-  <nav class="nav">
-    <a href="/index.php" class="nav__logo">VS<span class="accent">.</span></a>
-    <ul class="nav__links">
-      <li><a href="/index.php">Inicio</a></li>
-      <li><a href="/about.php">Sobre mí</a></li>
-      <li><a href="/blog.php">Blog</a></li>
-      <li><a href="/contact.php">Contacto</a></li>
+  <div class="contenedor nav">
+    <a href="/index.php" class="nav__logo">
+      <span class="nav__logo-corchete">[</span>VS<span class="acento">.</span>dev<span class="nav__logo-corchete">]</span>
+    </a>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav__enlaces" id="navEnlaces">
+      <li><a href="/index.php"   class="<?= $pagina_actual === 'index.php'   ? 'activo' : '' ?>">inicio</a></li>
+      <li><a href="/about.php"   class="<?= $pagina_actual === 'about.php'   ? 'activo' : '' ?>">sobre_mi</a></li>
+      <li><a href="/blog.php"    class="<?= $pagina_actual === 'blog.php'    ? 'activo' : '' ?>">blog</a></li>
+      <li><a href="/contact.php" class="<?= $pagina_actual === 'contact.php' ? 'activo' : '' ?>">contacto</a></li>
     </ul>
-  </nav>
+  </div>
 </header>
-<main class="contenido-principal"></main>
+
+<main class="contenido-principal">

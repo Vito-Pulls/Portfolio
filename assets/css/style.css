@@ -98,7 +98,6 @@ p {
   color: var(--color-acento-claro);
 }
 
-/* Etiqueta estilo terminal */
 .etiqueta {
   font-family: var(--fuente-mono);
   font-size: 0.72rem;
@@ -138,4 +137,139 @@ p {
 ::selection {
   background: var(--color-acento);
   color: var(--color-texto);
+}
+
+/* ============================================
+   HEADER & NAV
+   ============================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13, 10, 11, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav__logo {
+  font-family: var(--fuente-mono);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: var(--color-texto);
+  transition: color var(--transicion);
+}
+
+.nav__logo-corchete {
+  color: var(--color-texto-tenue);
+}
+
+.nav__logo:hover {
+  color: var(--color-acento-claro);
+}
+
+.nav__enlaces {
+  display: flex;
+  gap: var(--espacio-lg);
+  align-items: center;
+}
+
+.nav__enlaces a {
+  font-family: var(--fuente-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--color-texto-suave);
+  position: relative;
+  transition: color var(--transicion);
+  padding-block: var(--espacio-xs);
+}
+
+.nav__enlaces a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-acento-claro);
+  transition: width var(--transicion);
+}
+
+.nav__enlaces a:hover,
+.nav__enlaces a.activo {
+  color: var(--color-texto);
+}
+
+.nav__enlaces a:hover::after,
+.nav__enlaces a.activo::after {
+  width: 100%;
+}
+
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--espacio-sm);
+}
+
+.nav__toggle span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--color-texto-suave);
+  transition: var(--transicion);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  border-top: 1px solid var(--color-borde);
+  padding-block: var(--espacio-lg);
+  text-align: center;
+}
+
+.site-footer p {
+  font-family: var(--fuente-mono);
+  font-size: 0.75rem;
+  color: var(--color-texto-tenue);
+  max-width: none;
+  margin-inline: auto;
+}
+
+/* ============================================
+   RESPONSIVE NAV
+   ============================================ */
+@media (max-width: 768px) {
+  .nav__toggle { display: flex; }
+
+  .nav__enlaces {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    background: var(--color-fondo-alt);
+    border-bottom: 1px solid var(--color-borde);
+    padding-block: var(--espacio-md);
+  }
+
+  .nav__enlaces.abierto { display: flex; }
+
+  .nav__enlaces a {
+    padding: var(--espacio-md) var(--espacio-lg);
+    font-size: 0.9rem;
+  }
 }
