@@ -1,0 +1,141 @@
+/* ============================================
+   TOKENS DE DISEÑO
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  /* Paleta granate */
+  --color-fondo:          #0d0a0b;
+  --color-fondo-alt:      #131013;
+  --color-superficie:     #1a1418;
+  --color-borde:          #2e2028;
+  --color-acento:         #8b1a2f;
+  --color-acento-claro:   #b52342;
+  --color-acento-oscuro:  #5c1020;
+  --color-brillo:         rgba(139, 26, 47, 0.35);
+
+  /* Texto */
+  --color-texto:          #e8e0e2;
+  --color-texto-suave:    #7a6e70;
+  --color-texto-tenue:    #3d3335;
+
+  /* Tipografía */
+  --fuente-mono:  'Share Tech Mono', monospace;
+  --fuente-cuerpo: 'DM Sans', sans-serif;
+
+  /* Espaciado */
+  --espacio-xs:   0.25rem;
+  --espacio-sm:   0.5rem;
+  --espacio-md:   1rem;
+  --espacio-lg:   2rem;
+  --espacio-xl:   4rem;
+  --espacio-2xl:  8rem;
+
+  /* Miscelánea */
+  --radio:        4px;
+  --transicion:   200ms ease;
+  --ancho-maximo: 1100px;
+}
+
+/* ============================================
+   RESET
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-cuerpo);
+  font-weight: 300;
+  line-height: 1.7;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================
+   TIPOGRAFÍA BASE
+   ============================================ */
+h1, h2, h3, h4 {
+  font-family: var(--fuente-mono);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.2rem, 6vw, 4.5rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.4rem); }
+h3 { font-size: clamp(1rem, 2vw, 1.4rem); }
+
+p {
+  max-width: 65ch;
+  color: var(--color-texto-suave);
+}
+
+.acento {
+  color: var(--color-acento-claro);
+}
+
+/* Etiqueta estilo terminal */
+.etiqueta {
+  font-family: var(--fuente-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-acento-claro);
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-maximo);
+  margin-inline: auto;
+  padding-inline: var(--espacio-lg);
+}
+
+.contenido-principal {
+  min-height: calc(100vh - 140px);
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-fondo); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-acento-oscuro);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-acento); }
+
+/* ============================================
+   SELECCIÓN DE TEXTO
+   ============================================ */
+::selection {
+  background: var(--color-acento);
+  color: var(--color-texto);
+}
