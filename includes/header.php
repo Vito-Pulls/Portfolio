@@ -7,7 +7,7 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Víctor Suárez — Dev</title>
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
@@ -25,7 +25,7 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
       <li><a href="/index.php"   class="<?= $pagina_actual === 'index.php'   ? 'activo' : '' ?>">inicio</a></li>
       <li><a href="/about.php"   class="<?= $pagina_actual === 'about.php'   ? 'activo' : '' ?>">sobre_mi</a></li>
       <li><a href="/blog.php"    class="<?= $pagina_actual === 'blog.php'    ? 'activo' : '' ?>">blog</a></li>
-      <li><a href="/contact.php" class="<?= $pagina_actual === 'contact.php' ? 'activo' : '' ?>">contacto</a></li>
+      <li><a href="/contacto.php" class="<?= $pagina_actual === 'contacto.php' ? 'activo' : '' ?>">contacto</a></li>
     </ul>
   </div>
 </header>
