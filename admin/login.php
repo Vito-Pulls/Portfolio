@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $contrasena = trim($_POST['contrasena'] ?? '');
 
     $usuario_valido = 'victor';
-    $contrasena_valida = 'admin1234';
+    $contrasena_valida = '1959';
 
     if ($usuario === $usuario_valido && $contrasena === $contrasena_valida) {
         $_SESSION['admin_logueado'] = true;
