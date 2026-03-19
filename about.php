@@ -67,10 +67,18 @@ include 'includes/header.php';
                 <span class="bio__dato-clave etiqueta">idiomas</span>
                 <span class="bio__dato-valor">Español · Inglés</span>
             </div>
-            <a href="<?= BASE_URL ?>/contacto.php" class="btn btn--primario">Contactar</a>
-        </div>
+            <!-- Botones de acción -->
+            <div class="bio__acciones">
+                <a href="https://vito-pulls.github.io/Personal-CV/" target="_blank" rel="noopener noreferrer"
+                    class="btn btn--primario btn--full">
+                    Ver curriculum ↗
+                </a>
+                <a href="<?= BASE_URL ?>/contacto.php" class="btn btn--secundario btn--full">
+                    Contactar
+                </a>
+            </div>
 
-    </div>
+        </div>
 </section>
 <!-- SKILLS -->
 <section class="skills">
