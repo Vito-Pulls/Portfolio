@@ -1,19 +1,17 @@
 <?php
-require_once 'config/db.php';
 require_once 'config/rutas.php';
-
-$seo_titulo      = htmlspecialchars($post['titulo']) . ' — Víctor Suárez Dev';
-$seo_descripcion = htmlspecialchars($post['resumen']);
-$seo_url         = 'http://localhost' . BASE_URL . '/post.php?slug=' . urlencode($post['slug']);
+require_once 'config/db.php';
 
 $bd = conectarBD();
 $slug = trim($_GET['slug'] ?? '');
 
+// Si no hay slug redirige al blog
 if (empty($slug)) {
   header('Location: ' . BASE_URL . '/blog.php');
   exit;
 }
 
+// Buscar el post
 $stmt = $bd->prepare(
   "SELECT * FROM posts WHERE slug = ? AND publicado = 1"
 );
@@ -22,6 +20,13 @@ $stmt->execute();
 $post = $stmt->get_result()->fetch_assoc();
 $stmt->close();
 
+// Si no existe el post redirige al blog
+if (!$post) {
+  header('Location: ' . BASE_URL . '/blog.php');
+  exit;
+}
+
+// Post anterior
 $stmt_prev = $bd->prepare(
   "SELECT titulo, slug FROM posts
    WHERE publicado = 1 AND creado_en < ?
@@ -32,6 +37,7 @@ $stmt_prev->execute();
 $post_anterior = $stmt_prev->get_result()->fetch_assoc();
 $stmt_prev->close();
 
+// Post siguiente
 $stmt_next = $bd->prepare(
   "SELECT titulo, slug FROM posts
    WHERE publicado = 1 AND creado_en > ?
@@ -44,14 +50,15 @@ $stmt_next->close();
 
 $bd->close();
 
-if (!$post) {
-  header('Location: ' . BASE_URL . '/blog.php');
-  exit;
-}
+// SEO — ahora $post ya existe
+$seo_titulo = htmlspecialchars($post['titulo']) . ' — Víctor Suárez Dev';
+$seo_descripcion = htmlspecialchars($post['resumen']);
+$seo_url = 'http://localhost' . BASE_URL . '/post.php?slug=' . urlencode($post['slug']);
 
 include 'includes/header.php';
 ?>
 
+<!-- POST HEADER -->
 <section class="post-header">
   <div class="contenedor post-header__contenido">
     <a href="<?= BASE_URL ?>/blog.php" class="post-header__volver">
@@ -76,6 +83,7 @@ include 'includes/header.php';
   </div>
 </section>
 
+<!-- POST CONTENIDO -->
 <article class="post-articulo">
   <div class="contenedor post-articulo__grid">
 
@@ -107,6 +115,7 @@ include 'includes/header.php';
   </div>
 </article>
 
+<!-- NAVEGACIÓN ENTRE POSTS -->
 <nav class="post-nav">
   <div class="contenedor post-nav__grid">
     <div class="post-nav__anterior">
