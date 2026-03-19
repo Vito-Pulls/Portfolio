@@ -436,3 +436,123 @@ p {
     display: none;
   }
 }
+/* ============================================
+   SECCIÓN HEADER (reutilizable)
+   ============================================ */
+.seccion-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-sm);
+  margin-bottom: var(--espacio-xl);
+}
+
+.seccion-header h2 {
+  color: var(--color-texto);
+}
+
+/* ============================================
+   PROYECTOS
+   ============================================ */
+.proyectos {
+  padding-block: var(--espacio-2xl);
+  border-top: 1px solid var(--color-borde);
+}
+
+.proyectos__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espacio-lg);
+}
+
+/* Project card */
+.project-card {
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: var(--espacio-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-md);
+  transition: border-color var(--transicion), transform var(--transicion);
+}
+
+.project-card:hover {
+  border-color: var(--color-acento);
+  transform: translateY(-4px);
+}
+
+.project-card--destacado {
+  grid-column: span 2;
+  border-color: var(--color-acento-oscuro);
+  background: linear-gradient(135deg, var(--color-superficie) 60%, rgba(139, 26, 47, 0.08));
+}
+
+.project-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-card__enlaces {
+  display: flex;
+  gap: var(--espacio-sm);
+}
+
+.project-card__icono {
+  color: var(--color-texto-tenue);
+  transition: color var(--transicion);
+  display: flex;
+  align-items: center;
+}
+
+.project-card__icono:hover {
+  color: var(--color-acento-claro);
+}
+
+.project-card__titulo {
+  color: var(--color-texto);
+  font-size: 1.1rem;
+}
+
+.project-card__descripcion {
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.project-card__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-sm);
+}
+
+.project-card__stack span {
+  font-family: var(--fuente-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--color-acento-claro);
+  background: var(--color-acento-oscuro);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radio);
+  opacity: 0.85;
+}
+
+/* ============================================
+   PROYECTOS RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .proyectos__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .project-card--destacado {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .proyectos__grid {
+    grid-template-columns: 1fr;
+  }
+  .project-card--destacado {
+    grid-column: span 1;
+  }
+}
