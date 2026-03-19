@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . dirname($_SERVER['SCRIPT_NAME']) . '/config/rutas.php';
 $pagina_actual = basename($_SERVER['PHP_SELF']);
 ?>
 <!DOCTYPE html>
@@ -7,27 +8,32 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Víctor Suárez — Dev</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css" />
 </head>
 <body>
 
-<header class="site-header">
-  <div class="contenedor nav">
-    <a href="/index.php" class="nav__logo">
-      <span class="nav__logo-corchete">[</span>VS<span class="acento">.</span>dev<span class="nav__logo-corchete">]</span>
-    </a>
+  <header class="site-header">
+    <div class="contenedor nav">
+      <a href="/index.php" class="nav__logo">
+        <span class="nav__logo-corchete">[</span>VS<span class="acento">.</span>dev<span
+          class="nav__logo-corchete">]</span>
+      </a>
 
-    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
 
-    <ul class="nav__enlaces" id="navEnlaces">
-      <li><a href="/index.php"   class="<?= $pagina_actual === 'index.php'   ? 'activo' : '' ?>">inicio</a></li>
-      <li><a href="/about.php"   class="<?= $pagina_actual === 'about.php'   ? 'activo' : '' ?>">sobre_mi</a></li>
-      <li><a href="/blog.php"    class="<?= $pagina_actual === 'blog.php'    ? 'activo' : '' ?>">blog</a></li>
-      <li><a href="/contacto.php" class="<?= $pagina_actual === 'contacto.php' ? 'activo' : '' ?>">contacto</a></li>
-    </ul>
-  </div>
-</header>
+      <ul class="nav__enlaces" id="navEnlaces">
+        <li><a href="<?= BASE_URL ?>/index.php" class="<?= $pagina_actual === 'index.php' ? 'activo' : '' ?>">inicio</a>
+        </li>
+        <li><a href="<?= BASE_URL ?>/about.php"
+            class="<?= $pagina_actual === 'about.php' ? 'activo' : '' ?>">sobre_mi</a></li>
+        <li><a href="<?= BASE_URL ?>/blog.php" class="<?= $pagina_actual === 'blog.php' ? 'activo' : '' ?>">blog</a>
+        </li>
+        <li><a href="<?= BASE_URL ?>/contacto.php"
+            class="<?= $pagina_actual === 'contacto.php' ? 'activo' : '' ?>">contacto</a></li>
+      </ul>
+    </div>
+  </header>
 
-<main class="contenido-principal">
+  <main class="contenido-principal">
