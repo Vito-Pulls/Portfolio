@@ -1,3 +1,57 @@
+<?php
+$errores = [];
+$mensaje_exito = '';
+$mensaje_error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+  // Sanitizar entradas
+  $nombre = trim(htmlspecialchars($_POST['nombre'] ?? ''));
+  $email = trim(htmlspecialchars($_POST['email'] ?? ''));
+  $asunto = trim(htmlspecialchars($_POST['asunto'] ?? ''));
+  $mensaje = trim(htmlspecialchars($_POST['mensaje'] ?? ''));
+
+  // Validaciones
+  if (empty($nombre)) {
+    $errores['nombre'] = 'El nombre es obligatorio.';
+  } elseif (strlen($nombre) < 2) {
+    $errores['nombre'] = 'El nombre debe tener al menos 2 caracteres.';
+  }
+
+  if (empty($email)) {
+    $errores['email'] = 'El email es obligatorio.';
+  } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errores['email'] = 'Introduce un email válido.';
+  }
+
+  if (empty($asunto)) {
+    $errores['asunto'] = 'El asunto es obligatorio.';
+  }
+
+  if (empty($mensaje)) {
+    $errores['mensaje'] = 'El mensaje es obligatorio.';
+  } elseif (strlen($mensaje) < 10) {
+    $errores['mensaje'] = 'El mensaje debe tener al menos 10 caracteres.';
+  }
+
+  // Si no hay errores, enviar
+  if (empty($errores)) {
+    $destinatario = 'vjavier170103@gmail.com';
+    $asunto_mail = '[Portfolio] ' . $asunto;
+    $cuerpo = "Nombre: $nombre\nEmail: $email\n\nMensaje:\n$mensaje";
+    $cabeceras = "From: $email\r\nReply-To: $email\r\nX-Mailer: PHP/" . phpversion();
+
+    $enviado = mail($destinatario, $asunto_mail, $cuerpo, $cabeceras);
+
+    if ($enviado) {
+      $mensaje_exito = '¡Mensaje enviado! Te respondo en menos de 24h.';
+      $_POST = [];
+    } else {
+      $mensaje_error = 'Hubo un problema al enviar. Prueba a escribirme directamente.';
+    }
+  }
+}
+?>
 <?php include 'includes/header.php'; ?>
 
 <!-- CONTACT HERO -->
@@ -9,7 +63,6 @@
       Escríbeme y te respondo en menos de 24h.</p>
   </div>
 </section>
-
 <!-- CONTACT MAIN -->
 <section class="contact-main">
   <div class="contenedor contact-main__grid">
@@ -18,15 +71,15 @@
     <div class="contact-form__wrapper">
 
       <?php if (!empty($mensaje_exito)): ?>
-        <div class="contact-alert contact-alert--ok">
-          <span>✓</span> <?= htmlspecialchars($mensaje_exito) ?>
-        </div>
+          <div class="contact-alert contact-alert--ok">
+            <span>✓</span> <?= htmlspecialchars($mensaje_exito) ?>
+          </div>
       <?php endif; ?>
 
       <?php if (!empty($mensaje_error)): ?>
-        <div class="contact-alert contact-alert--error">
-          <span>✗</span> <?= htmlspecialchars($mensaje_error) ?>
-        </div>
+          <div class="contact-alert contact-alert--error">
+            <span>✗</span> <?= htmlspecialchars($mensaje_error) ?>
+          </div>
       <?php endif; ?>
 
       <form class="contact-form" method="POST" action="contacto.php" novalidate>
@@ -36,7 +89,7 @@
           <input class="form-input" type="text" id="nombre" name="nombre" placeholder="Tu nombre completo"
             value="<?= htmlspecialchars($_POST['nombre'] ?? '') ?>" autocomplete="off" />
           <?php if (!empty($errores['nombre'])): ?>
-            <span class="form-error"><?= $errores['nombre'] ?></span>
+              <span class="form-error"><?= $errores['nombre'] ?></span>
           <?php endif; ?>
         </div>
 
@@ -45,7 +98,8 @@
           <input class="form-input" type="email" id="email" name="email" placeholder="tu@email.com"
             value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" autocomplete="off" />
           <?php if (!empty($errores['email'])): ?>
-            <span class="form-error"><?= $errores['email'] ?></span>
+
+                         <span class="form-error"><?= $errores['email'] ?></span>
           <?php endif; ?>
         </div>
 
@@ -54,7 +108,7 @@
           <input class="form-input" type="text" id="asunto" name="asunto" placeholder="¿De qué va esto?"
             value="<?= htmlspecialchars($_POST['asunto'] ?? '') ?>" autocomplete="off" />
           <?php if (!empty($errores['asunto'])): ?>
-            <span class="form-error"><?= $errores['asunto'] ?></span>
+              <span class="form-error"><?= $errores['asunto'] ?></span>
           <?php endif; ?>
         </div>
 
@@ -63,7 +117,7 @@
           <textarea class="form-input form-textarea" id="mensaje" name="mensaje" placeholder="Cuéntame..."
             rows="6"><?= htmlspecialchars($_POST['mensaje'] ?? '') ?></textarea>
           <?php if (!empty($errores['mensaje'])): ?>
-            <span class="form-error"><?= $errores['mensaje'] ?></span>
+              <span class="form-error"><?= $errores['mensaje'] ?></span>
           <?php endif; ?>
         </div>
 
