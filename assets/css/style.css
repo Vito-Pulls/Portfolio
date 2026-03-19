@@ -273,3 +273,166 @@ p {
     font-size: 0.9rem;
   }
 }
+/* ============================================
+   BOTONES (globales)
+   ============================================ */
+.btn {
+  display: inline-block;
+  font-family: var(--fuente-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radio);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transicion);
+  text-transform: lowercase;
+}
+
+.btn--primario {
+  background: var(--color-acento);
+  color: var(--color-texto);
+  border-color: var(--color-acento);
+}
+
+.btn--primario:hover {
+  background: var(--color-acento-claro);
+  border-color: var(--color-acento-claro);
+  box-shadow: 0 0 24px var(--color-brillo);
+}
+
+.btn--secundario {
+  background: transparent;
+  color: var(--color-texto-suave);
+  border-color: var(--color-borde);
+}
+
+.btn--secundario:hover {
+  border-color: var(--color-acento);
+  color: var(--color-texto);
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__contenido {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-xl);
+  align-items: center;
+  padding-block: var(--espacio-2xl);
+}
+
+.hero__texto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-lg);
+}
+
+.hero__titulo {
+  color: var(--color-texto);
+  line-height: 1.1;
+}
+
+.hero__subtitulo {
+  font-size: 1.05rem;
+  max-width: 48ch;
+  line-height: 1.8;
+}
+
+/* Terminal typing */
+.hero__terminal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 0.6rem 1rem;
+  font-family: var(--fuente-mono);
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+  width: fit-content;
+}
+
+.hero__terminal-prompt {
+  color: var(--color-acento-claro);
+}
+
+.hero__terminal-texto {
+  color: var(--color-texto);
+}
+
+.hero__terminal-cursor {
+  color: var(--color-acento-claro);
+  animation: parpadeo 1s step-end infinite;
+}
+
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.hero__acciones {
+  display: flex;
+  gap: var(--espacio-md);
+  flex-wrap: wrap;
+}
+
+/* Decoración lado derecho */
+.hero__decoracion {
+  position: relative;
+  height: 420px;
+}
+
+.hero__cuadricula {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-borde) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-borde) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.5;
+  border-radius: var(--radio);
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+}
+
+.hero__orbe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-acento-oscuro) 0%, transparent 70%);
+  filter: blur(40px);
+  animation: pulso 4s ease-in-out infinite;
+}
+
+@keyframes pulso {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);   opacity: 0.6; }
+  50%       { transform: translate(-50%, -50%) scale(1.15); opacity: 1;   }
+}
+
+/* ============================================
+   HERO RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .hero__contenido {
+    grid-template-columns: 1fr;
+    padding-block: var(--espacio-xl);
+  }
+
+  .hero__decoracion {
+    display: none;
+  }
+}
