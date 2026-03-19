@@ -2,6 +2,10 @@
 require_once 'config/db.php';
 require_once 'config/rutas.php';
 
+$seo_titulo      = htmlspecialchars($post['titulo']) . ' — Víctor Suárez Dev';
+$seo_descripcion = htmlspecialchars($post['resumen']);
+$seo_url         = 'http://localhost' . BASE_URL . '/post.php?slug=' . urlencode($post['slug']);
+
 $bd = conectarBD();
 $slug = trim($_GET['slug'] ?? '');
 

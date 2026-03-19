@@ -1,6 +1,9 @@
 <?php
 require_once 'config/db.php';
 require_once 'config/rutas.php';
+$seo_titulo = 'Blog — Víctor Suárez Dev';
+$seo_descripcion = 'Artículos y notas sobre desarrollo web, PHP, JavaScript y todo lo que voy aprendiendo.';
+$seo_url = 'http://localhost' . BASE_URL . '/blog.php';
 
 $bd = conectarBD();
 

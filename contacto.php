@@ -3,6 +3,10 @@ $errores = [];
 $mensaje_exito = '';
 $mensaje_error = '';
 
+$seo_titulo = 'Contacto — Víctor Suárez Dev';
+$seo_descripcion = '¿Tienes un proyecto en mente? Escríbeme y hablamos.';
+$seo_url = 'http://localhost' . BASE_URL . '/contacto.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // Sanitizar entradas
@@ -71,15 +75,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="contact-form__wrapper">
 
       <?php if (!empty($mensaje_exito)): ?>
-          <div class="contact-alert contact-alert--ok">
-            <span>✓</span> <?= htmlspecialchars($mensaje_exito) ?>
-          </div>
+        <div class="contact-alert contact-alert--ok">
+          <span>✓</span> <?= htmlspecialchars($mensaje_exito) ?>
+        </div>
       <?php endif; ?>
 
       <?php if (!empty($mensaje_error)): ?>
-          <div class="contact-alert contact-alert--error">
-            <span>✗</span> <?= htmlspecialchars($mensaje_error) ?>
-          </div>
+        <div class="contact-alert contact-alert--error">
+          <span>✗</span> <?= htmlspecialchars($mensaje_error) ?>
+        </div>
       <?php endif; ?>
 
       <form class="contact-form" method="POST" action="contacto.php" novalidate>
@@ -89,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <input class="form-input" type="text" id="nombre" name="nombre" placeholder="Tu nombre completo"
             value="<?= htmlspecialchars($_POST['nombre'] ?? '') ?>" autocomplete="off" />
           <?php if (!empty($errores['nombre'])): ?>
-              <span class="form-error"><?= $errores['nombre'] ?></span>
+            <span class="form-error"><?= $errores['nombre'] ?></span>
           <?php endif; ?>
         </div>
 
@@ -99,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" autocomplete="off" />
           <?php if (!empty($errores['email'])): ?>
 
-                         <span class="form-error"><?= $errores['email'] ?></span>
+            <span class="form-error"><?= $errores['email'] ?></span>
           <?php endif; ?>
         </div>
 
@@ -108,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <input class="form-input" type="text" id="asunto" name="asunto" placeholder="¿De qué va esto?"
             value="<?= htmlspecialchars($_POST['asunto'] ?? '') ?>" autocomplete="off" />
           <?php if (!empty($errores['asunto'])): ?>
-              <span class="form-error"><?= $errores['asunto'] ?></span>
+            <span class="form-error"><?= $errores['asunto'] ?></span>
           <?php endif; ?>
         </div>
 
@@ -117,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <textarea class="form-input form-textarea" id="mensaje" name="mensaje" placeholder="Cuéntame..."
             rows="6"><?= htmlspecialchars($_POST['mensaje'] ?? '') ?></textarea>
           <?php if (!empty($errores['mensaje'])): ?>
-              <span class="form-error"><?= $errores['mensaje'] ?></span>
+            <span class="form-error"><?= $errores['mensaje'] ?></span>
           <?php endif; ?>
         </div>
 
@@ -153,7 +157,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </svg>
             GitHub
           </a>
-          <a href="https://www.linkedin.com/in/victor-javier-b428a8342/" target="_blank" rel="noopener" class="contact-info__red">
+          <a href="https://www.linkedin.com/in/victor-javier-b428a8342/" target="_blank" rel="noopener"
+            class="contact-info__red">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
               <rect x="2" y="9" width="4" height="12" />
