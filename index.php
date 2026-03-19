@@ -1,4 +1,10 @@
-<?php include 'includes/header.php'; ?>
+<?php
+require_once 'config/rutas.php';
+$seo_titulo = 'Víctor Suárez — Desarrollador Web Fullstack';
+$seo_descripcion = 'Portfolio de Víctor Javier Suárez Acosta. Desarrollo web fullstack con PHP, JavaScript y HTML/CSS.';
+$seo_url = 'http://localhost' . BASE_URL . '/index.php';
+include 'includes/header.php';
+?>
 
 <!-- HERO -->
 <section class="hero">

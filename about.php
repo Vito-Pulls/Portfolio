@@ -1,4 +1,10 @@
-<?php include 'includes/header.php'; ?>
+<?php
+require_once 'config/rutas.php';
+$seo_titulo = 'Sobre mí — Víctor Suárez';
+$seo_descripcion = 'Conoce a Víctor Javier Suárez Acosta, desarrollador web junior fullstack especializado en PHP y JavaScript.';
+$seo_url = 'http://localhost' . BASE_URL . '/about.php';
+include 'includes/header.php';
+?>
 
 <section class="about-hero">
     <div class="contenedor about-hero__contenido">
