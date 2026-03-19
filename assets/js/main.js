@@ -1,6 +1,6 @@
 // Menú mobile
-const botonMenu   = document.getElementById('botonMenu');
-const enlacesNav  = document.getElementById('enlacesNav');
+const botonMenu = document.getElementById('botonMenu');
+const enlacesNav = document.getElementById('enlacesNav');
 
 if (botonMenu && enlacesNav) {
   botonMenu.addEventListener('click', () => {
@@ -19,10 +19,10 @@ const frases = [
 const elementoTexto = document.getElementById('textoAnimado');
 
 if (elementoTexto) {
-  let indiceFrase    = 0;
-  let indiceLetra    = 0;
-  let escribiendo    = true;
-  let pausaFinal     = false;
+  let indiceFrase = 0;
+  let indiceLetra = 0;
+  let escribiendo = true;
+  let pausaFinal = false;
 
   function escribir() {
     const fraseActual = frases[indiceFrase];
@@ -47,12 +47,29 @@ if (elementoTexto) {
       indiceLetra--;
 
       if (indiceLetra === 0) {
-        escribiendo   = true;
-        indiceFrase   = (indiceFrase + 1) % frases.length;
+        escribiendo = true;
+        indiceFrase = (indiceFrase + 1) % frases.length;
       }
       setTimeout(escribir, 35);
     }
   }
 
   escribir();
+}
+// Animación de entrada de cards al hacer scroll
+const cards = document.querySelectorAll('.project-card');
+
+if (cards.length > 0) {
+  const observador = new IntersectionObserver((entradas) => {
+    entradas.forEach((entrada, i) => {
+      if (entrada.isIntersecting) {
+        setTimeout(() => {
+          entrada.target.classList.add('visible');
+        }, i * 120);
+        observador.unobserve(entrada.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => observador.observe(card));
 }
