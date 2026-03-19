@@ -83,4 +83,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cards.forEach(card => observador.observe(card));
   }
+  // --- Animación skill bars al hacer scroll ---
+  const skillBars = document.querySelectorAll('.skill-bar');
+
+  if (skillBars.length > 0) {
+    const observadorSkills = new IntersectionObserver((entradas) => {
+      entradas.forEach(entrada => {
+        if (entrada.isIntersecting) {
+          const nivel = entrada.target.dataset.nivel;
+          const relleno = entrada.target.querySelector('.skill-bar__relleno');
+          if (relleno) relleno.style.width = nivel + '%';
+          observadorSkills.unobserve(entrada.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    skillBars.forEach(bar => observadorSkills.observe(bar));
+  }
 });

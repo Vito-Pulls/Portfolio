@@ -66,5 +66,118 @@
 
     </div>
 </section>
+<!-- SKILLS -->
+<section class="skills">
+    <div class="contenedor">
+
+        <div class="seccion-header">
+            <span class="etiqueta">// tecnologías</span>
+            <h2>Stack <span class="acento">&</span> Skills</h2>
+        </div>
+
+        <div class="skills__grid">
+
+            <div class="skills__grupo">
+                <h3 class="skills__grupo-titulo">Frontend</h3>
+                <div class="skills__lista">
+                    <div class="skill-bar" data-nivel="90">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__nombre">HTML5</span>
+                            <span class="skill-bar__porcentaje">90%</span>
+                        </div>
+                        <div class="skill-bar__pista">
+                            <div class="skill-bar__relleno"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar" data-nivel="85">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__nombre">CSS3</span>
+                            <span class="skill-bar__porcentaje">85%</span>
+                        </div>
+                        <div class="skill-bar__pista">
+                            <div class="skill-bar__relleno"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar" data-nivel="75">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__nombre">JavaScript</span>
+                            <span class="skill-bar__porcentaje">75%</span>
+                        </div>
+                        <div class="skill-bar__pista">
+                            <div class="skill-bar__relleno"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills__grupo">
+                <h3 class="skills__grupo-titulo">Backend</h3>
+                <div class="skills__lista">
+                    <div class="skill-bar" data-nivel="80">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__nombre">PHP</span>
+                            <span class="skill-bar__porcentaje">80%</span>
+                        </div>
+                        <div class="skill-bar__pista">
+                            <div class="skill-bar__relleno"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar" data-nivel="70">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__nombre">MySQL</span>
+                            <span class="skill-bar__porcentaje">70%</span>
+                        </div>
+                        <div class="skill-bar__pista">
+                            <div class="skill-bar__relleno"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar" data-nivel="55">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__nombre">Laravel</span>
+                            <span class="skill-bar__porcentaje">55%</span>
+                        </div>
+                        <div class="skill-bar__pista">
+                            <div class="skill-bar__relleno"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills__grupo">
+                <h3 class="skills__grupo-titulo">Herramientas</h3>
+                <div class="skills__lista">
+                    <div class="skill-bar" data-nivel="80">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__nombre">Git</span>
+                            <span class="skill-bar__porcentaje">80%</span>
+                        </div>
+                        <div class="skill-bar__pista">
+                            <div class="skill-bar__relleno"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar" data-nivel="60">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__nombre">Docker</span>
+                            <span class="skill-bar__porcentaje">60%</span>
+                        </div>
+                        <div class="skill-bar__pista">
+                            <div class="skill-bar__relleno"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar" data-nivel="40">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__nombre">Despliegue</span>
+                            <span class="skill-bar__porcentaje">40%</span>
+                        </div>
+                        <div class="skill-bar__pista">
+                            <div class="skill-bar__relleno"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
 <?php include 'includes/footer.php'; ?>
