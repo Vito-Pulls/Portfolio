@@ -7,3 +7,52 @@ if (botonMenu && enlacesNav) {
     enlacesNav.classList.toggle('abierto');
   });
 }
+// Efecto typing hero
+const frases = [
+  'php artisan make:magic',
+  'git commit -m "en mi pc funciona"',
+  'console.log("hola mundo")',
+  'SELECT * FROM proyectos WHERE terminado = 1',
+  'npm run build && rezo()',
+];
+
+const elementoTexto = document.getElementById('textoAnimado');
+
+if (elementoTexto) {
+  let indiceFrase    = 0;
+  let indiceLetra    = 0;
+  let escribiendo    = true;
+  let pausaFinal     = false;
+
+  function escribir() {
+    const fraseActual = frases[indiceFrase];
+
+    if (pausaFinal) {
+      pausaFinal = false;
+      escribiendo = false;
+    }
+
+    if (escribiendo) {
+      elementoTexto.textContent = fraseActual.slice(0, indiceLetra + 1);
+      indiceLetra++;
+
+      if (indiceLetra === fraseActual.length) {
+        pausaFinal = true;
+        setTimeout(escribir, 1800);
+        return;
+      }
+      setTimeout(escribir, 70);
+    } else {
+      elementoTexto.textContent = fraseActual.slice(0, indiceLetra - 1);
+      indiceLetra--;
+
+      if (indiceLetra === 0) {
+        escribiendo   = true;
+        indiceFrase   = (indiceFrase + 1) % frases.length;
+      }
+      setTimeout(escribir, 35);
+    }
+  }
+
+  escribir();
+}
