@@ -1,4 +1,5 @@
 <?php
+require_once 'config/rutas.php';
 $errores = [];
 $mensaje_exito = '';
 $mensaje_error = '';

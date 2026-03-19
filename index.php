@@ -32,7 +32,7 @@ include 'includes/header.php';
 
             <div class="hero__acciones">
                 <a href="<?= BASE_URL ?>/about.php" class="btn btn--primario">Sobre mí</a>
-                <a href="<?= BASE_URL ?>/contact.php" class="btn btn--secundario">Contacto</a>
+                <a href="<?= BASE_URL ?>/contacto.php" class="btn btn--secundario">Contacto</a>
             </div>
         </div>
 
