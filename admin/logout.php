@@ -1,5 +1,6 @@
 <?php
+require_once '../config/rutas.php';
 session_start();
 session_destroy();
-header('Location: login.php');
+header('Location: ' . BASE_URL . '/admin/login.php');
 exit;

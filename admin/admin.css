@@ -163,3 +163,35 @@
     color: var(--color-texto-tenue);
     max-width: none;
 }
+
+.admin-form {
+    max-width: 760px;
+}
+
+.admin-textarea {
+    min-height: 280px;
+    font-family: var(--fuente-mono);
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+.form-grupo--check {
+    flex-direction: row;
+    align-items: center;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-family: var(--fuente-mono);
+    font-size: 0.82rem;
+    color: var(--color-texto-suave);
+}
+
+.form-check input[type="checkbox"] {
+    accent-color: var(--color-acento-claro);
+    width: 14px;
+    height: 14px;
+}
