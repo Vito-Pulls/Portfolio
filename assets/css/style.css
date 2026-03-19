@@ -1729,3 +1729,11 @@ p {
     font-size: 0.68rem;
   }
 }
+/* ============================================
+   BIO — BOTONES
+   ============================================ */
+.bio__acciones {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-sm);
+}
