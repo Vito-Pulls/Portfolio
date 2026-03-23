@@ -50,34 +50,32 @@ include 'includes/header.php';
 
     <?php else: ?>
       <div class="blog-grid">
-        <?php foreach ($posts as $i => $post): ?>
+        <?php foreach ($posts as $i => $post):
+          $tipo_post = $post['tipo'] ?? 'texto';
+          ?>
           <article class="post-card <?= $i === 0 && $pagina_num === 1 ? 'post-card--destacado' : '' ?>">
-
-            <?php if ($post['tipo'] === 'video' && !empty($post['miniatura'])): ?>
+            <?php if ($tipo_post === 'video' && !empty($post['miniatura'])): ?>
               <div class="post-card__media post-card__media--video">
                 <img src="<?= BASE_URL . htmlspecialchars($post['miniatura']) ?>"
                   alt="<?= htmlspecialchars($post['titulo']) ?>" />
                 <span class="post-card__play" aria-hidden="true">▶</span>
               </div>
-
-            <?php elseif ($post['tipo'] === 'imagen' && !empty($post['imagen'])): ?>
+            <?php elseif ($tipo_post === 'imagen' && !empty($post['imagen'])): ?>
               <div class="post-card__media">
                 <img src="<?= BASE_URL . htmlspecialchars($post['imagen']) ?>"
                   alt="<?= htmlspecialchars($post['titulo']) ?>" />
               </div>
             <?php endif; ?>
-
             <div class="post-card__meta">
               <span class="etiqueta">
                 <?= date('d M Y', strtotime($post['creado_en'])) ?>
               </span>
-              <?php if ($post['tipo'] !== 'texto'): ?>
+              <?php if ($tipo_post !== 'texto'): ?>
                 <span class="post-card__tipo-badge etiqueta">
-                  <?= $post['tipo'] === 'video' ? '▶ vídeo' : '▣ imagen' ?>
+                  <?= $tipo_post === 'video' ? '▶ vídeo' : '▣ imagen' ?>
                 </span>
               <?php endif; ?>
             </div>
-
             <h2 class="post-card__titulo">
               <a href="<?= BASE_URL ?>/post.php?slug=<?= urlencode($post['slug']) ?>">
                 <?= htmlspecialchars($post['titulo']) ?>
