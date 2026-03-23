@@ -17,6 +17,10 @@ CREATE TABLE IF NOT EXISTS posts (
   contenido     LONGTEXT         NOT NULL,
   imagen_portada VARCHAR(255)    DEFAULT NULL,
   publicado     TINYINT(1)       NOT NULL DEFAULT 0,
+  tipo          ENUM('texto','imagen','video') NOT NULL DEFAULT 'texto',
+  imagen        VARCHAR(255)     DEFAULT NULL,
+  video         VARCHAR(255)     DEFAULT NULL,
+  miniatura     VARCHAR(255)     DEFAULT NULL,
   creado_en     DATETIME         NOT NULL DEFAULT CURRENT_TIMESTAMP,
   actualizado_en DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP
                                  ON UPDATE CURRENT_TIMESTAMP,
