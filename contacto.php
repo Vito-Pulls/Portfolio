@@ -158,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </svg>
             GitHub
           </a>
-          <a href="https://www.linkedin.com/in/victor-javier-b428a8342/" target="_blank" rel="noopener"
+          <a href="https://www.linkedin.com/in/vitopulls" target="_blank" rel="noopener"
             class="contact-info__red">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
