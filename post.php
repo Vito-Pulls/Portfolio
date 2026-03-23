@@ -50,6 +50,8 @@ $stmt_next->close();
 
 $bd->close();
 
+$tipo_post = $post['tipo'] ?? 'texto';
+
 // SEO — ahora $post ya existe
 $seo_titulo = htmlspecialchars($post['titulo']) . ' — Víctor Suárez Dev';
 $seo_descripcion = htmlspecialchars($post['resumen']);
@@ -82,6 +84,28 @@ include 'includes/header.php';
     </p>
   </div>
 </section>
+
+<?php if ($tipo_post === 'video' && !empty($post['video'])): ?>
+  <div class="post-media">
+    <div class="contenedor">
+      <div class="post-media__video-wrapper">
+        <video src="<?= BASE_URL . htmlspecialchars($post['video']) ?>" <?= !empty($post['miniatura']) ? 'poster="' . BASE_URL . htmlspecialchars($post['miniatura']) . '"' : '' ?> controls preload="metadata"
+          class="post-media__video">
+        </video>
+      </div>
+    </div>
+  </div>
+
+<?php elseif ($tipo_post === 'imagen' && !empty($post['imagen'])): ?>
+  <div class="post-media">
+    <div class="contenedor">
+      <figure class="post-media__figura">
+        <img src="<?= BASE_URL . htmlspecialchars($post['imagen']) ?>" alt="<?= htmlspecialchars($post['titulo']) ?>"
+          class="post-media__imagen" />
+      </figure>
+    </div>
+  </div>
+<?php endif; ?>
 
 <!-- POST CONTENIDO -->
 <article class="post-articulo">
