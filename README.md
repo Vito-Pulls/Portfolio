@@ -7,7 +7,7 @@ Portfolio personal y blog desarrollado con PHP, HTML, CSS y JavaScript vanilla.
 - **Frontend:** HTML5, CSS3 (custom properties, grid, flexbox), JavaScript vanilla
 - **Backend:** PHP 8.2
 - **Base de datos:** MySQL (via MySQLi)
-- **Entorno local:** XAMPP / Laragon
+- **Entorno local:** XAMPP / DOCKER
 
 ## Estructura del proyecto
 
@@ -23,22 +23,65 @@ Portfolio/
 ├── assets/
 │   ├── css/style.css
 │   ├── js/main.js
-│   └── img/
+│   ├── img/
+|   └── uploads/
 ├── config/
 │   ├── db.php          # Conexión a base de datos
-│   └── rutas.php       # Define BASE_URL dinámicamente
+│   ├── rutas.php       # Define BASE_URL dinámicamente
+|   └── media.php     
 ├── includes/
 │   ├── header.php
 │   └── footer.php
+├── docker/
+│   └── apache.conf
 ├── index.php           # Home — hero + proyectos
 ├── about.php           # Sobre mí + skills
-├── blog.php            # Listado de posts con paginación
+├── blog.php          # Listado de posts con paginación
 ├── post.php            # Vista individual de post
 ├── contacto.php        # Formulario de contacto
-└── schema.sql          # Schema y datos de ejemplo
+├── schema.sql          # Schema y datos de ejemplo
+├── Dockerfile
+├── docker-compose.yml
+└── .env                # Variables de entorno
 ```
 
 ## Instalación local
+
+### Con Docker (recomendado)
+
+**Requisitos:** Docker + Docker Compose
+
+```bash
+# 1. Clona el repositorio
+git clone https://github.com/Vito-Pulls/Portfolio.git
+cd Portfolio
+
+# 2. Copia las variables de entorno
+cp .env.example .env
+# Edita .env con tus credenciales si quieres cambiarlas
+
+# 3. Levanta los contenedores
+docker compose up -d --build
+
+# 4. Accede a la app
+# Portfolio:   http://localhost:8080
+# phpMyAdmin:  http://localhost:8081
+# Admin panel: http://localhost:8080/admin/login.php
+```
+
+Para parar los contenedores:
+
+```bash
+docker compose down
+```
+
+Para parar y borrar los datos de la BD:
+
+```bash
+docker compose down -v
+```
+
+### Sin Docker (XAMPP / Laragon)
 
 1. Clona o copia la carpeta en `htdocs`:
 
@@ -67,21 +110,13 @@ Portfolio/
 ## Acceso al panel admin
 
 ```
-URL:        http://localhost/Portfolio/admin/login.php
+URL: (XAMPP)        http://localhost/Portfolio/admin/login.php
+URL: (DOCKER)        http://localhost:8080/admin/login.php
 Usuario:    victor
-Contraseña: admin1234
+Contraseña: 1959
 ```
 
 > ⚠️ Cambia las credenciales antes de subir a producción.
-
-## Ramas del proyecto
-
-| Rama                     | Descripción                     |
-| ------------------------ | ------------------------------- |
-| `main`                   | Código estable                  |
-| `feature/blog-database`  | BD, schema y panel admin        |
-| `feature/blog-frontend`  | Blog público y vista de post    |
-| `feature/seo-responsive` | SEO, responsive y documentación |
 
 ## Autor
 

@@ -1,0 +1,64 @@
+services:
+
+  app:
+    build: .
+    container_name: portfolio_app
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+      - uploads_data:/var/www/html/assets/uploads
+    environment:
+      - BD_HOST=${BD_HOST}
+      - BD_USUARIO=${BD_USUARIO}
+      - BD_CONTRASENA=${BD_CONTRASENA}
+      - BD_NOMBRE=${BD_NOMBRE}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - portfolio_net
+
+  db:
+    image: mysql:8.0
+    container_name: portfolio_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${BD_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${BD_NOMBRE}
+      MYSQL_USER: ${BD_USUARIO}
+      MYSQL_PASSWORD: ${BD_CONTRASENA}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - portfolio_net
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: portfolio_pma
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    depends_on:
+      - db
+    networks:
+      - portfolio_net
+
+volumes:
+  db_data:
+  uploads_data:
+
+networks:
+  portfolio_net:
+    driver: bridge
