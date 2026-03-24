@@ -17,4 +17,7 @@ RUN mkdir -p /var/www/html/assets/uploads \
     && chown -R www-data:www-data /var/www/html/assets/uploads \
     && chmod 755 /var/www/html/assets/uploads
 
+# PHP config personalizada
+COPY docker/php.ini /usr/local/etc/php/conf.d/custom.ini
+
 EXPOSE 80
