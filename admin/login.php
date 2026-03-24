@@ -13,8 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = trim($_POST['usuario'] ?? '');
     $contrasena = trim($_POST['contrasena'] ?? '');
 
-    $usuario_valido = 'victor';
-    $contrasena_valida = '1959';
+    // Lee credenciales desde variables de entorno\\
+    $usuario_valido = $_ENV['ADMIN_USUARIO'] ?? getenv('ADMIN_USUARIO');
+    $contrasena_valida = $_ENV['ADMIN_CONTRASENA'] ?? getenv('ADMIN_CONTRASENA');
+
 
     if ($usuario === $usuario_valido && $contrasena === $contrasena_valida) {
         $_SESSION['admin_logueado'] = true;

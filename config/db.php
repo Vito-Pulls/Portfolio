@@ -1,10 +1,10 @@
 <?php
 // Lee credenciales desde variables de entorno \\
 // Si no existen, usa valores locales como fallback \\
-define('BD_HOST', $_ENV['BD_HOST'] ?? getenv('BD_HOST') ?: 'localhost');
-define('BD_USUARIO', $_ENV['BD_USUARIO'] ?? getenv('BD_USUARIO') ?: 'root');
-define('BD_CONTRASENA', $_ENV['BD_CONTRASENA'] ?? getenv('BD_CONTRASENA') ?: '');
-define('BD_NOMBRE', $_ENV['BD_NOMBRE'] ?? getenv('BD_NOMBRE') ?: 'portfolio');
+define('BD_HOST', $_ENV['BD_HOST'] ?? getenv('BD_HOST'));
+define('BD_USUARIO', $_ENV['BD_USUARIO'] ?? getenv('BD_USUARIO'));
+define('BD_CONTRASENA', $_ENV['BD_CONTRASENA'] ?? getenv('BD_CONTRASENA'));
+define('BD_NOMBRE', $_ENV['BD_NOMBRE'] ?? getenv('BD_NOMBRE'));
 define('BD_CHARSET', 'utf8mb4');
 
 function conectarBD(): mysqli
