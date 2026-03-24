@@ -2,3 +2,5 @@ assets/uploads/*
 !assets/uploads/.gitkeep
 .env
 docker/logs/
+portfolio.sql
+TODO.md
