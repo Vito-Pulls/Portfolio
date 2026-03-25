@@ -1817,3 +1817,25 @@ p {
   border: 1px solid var(--color-borde);
   display: block;
 }
+
+.proyectos__nota {
+  margin-top: var(--espacio-xl);
+  padding-top: var(--espacio-lg);
+  border-top: 1px solid var(--color-borde);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-sm);
+}
+
+.proyectos__nota p {
+  font-size: 0.88rem;
+}
+
+.proyectos__nota a {
+  color: var(--color-acento-claro);
+  transition: color var(--transicion);
+}
+
+.proyectos__nota a:hover {
+  color: var(--color-texto);
+}
