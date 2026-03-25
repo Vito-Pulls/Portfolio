@@ -201,15 +201,38 @@ include 'includes/header.php';
 
         </div>
 
-        <div class="proyectos__nota">
-            <span class="etiqueta">// este portfolio</span>
-            <p>Este mismo sitio está construido con PHP, MySQL, JavaScript vanilla y Docker.
-                <a href="https://github.com/Vito-Pulls" target="_blank" rel="noopener noreferrer">
-                    Ver todos los proyectos en GitHub ↗
-                </a>
-            </p>
-        </div>
-
+        <article class="project-card project-card--ancha">
+            <div class="project-card__header">
+                <span class="project-card__tipo etiqueta">fullstack</span>
+                <div class="project-card__enlaces">
+                    <a href="https://github.com/Vito-Pulls" target="_blank" rel="noopener noreferrer"
+                        aria-label="Ver código" class="project-card__icono">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="project-card--ancha__contenido">
+                <div>
+                    <h3 class="project-card__titulo">Este portfolio</h3>
+                    <p class="project-card__descripcion">
+                        Este mismo sitio — construido con PHP 8.2, MySQL, JavaScript vanilla y Docker.
+                        Blog con panel de administración, subida de archivos, BD en la nube y despliegue
+                        en contenedor. El proyecto más completo que he hecho hasta ahora.
+                    </p>
+                </div>
+                <div class="project-card__stack project-card__stack--ancha">
+                    <span>PHP</span>
+                    <span>MySQL</span>
+                    <span>JavaScript</span>
+                    <span>Docker</span>
+                    <span>Clever Cloud</span>
+                </div>
+            </div>
+        </article>
     </div>
 
     </div>
