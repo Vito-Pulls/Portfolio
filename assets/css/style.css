@@ -1817,3 +1817,33 @@ p {
   border: 1px solid var(--color-borde);
   display: block;
 }
+
+.project-card--ancha {
+  grid-column: 1 / -1;
+  flex-direction: column;
+  gap: var(--espacio-md);
+  margin-top: var(--espacio-lg);
+  border-color: var(--color-acento-oscuro);
+  background: linear-gradient(135deg,
+      var(--color-superficie) 60%,
+      rgba(139, 26, 47, 0.08));
+}
+
+.project-card--ancha__contenido {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--espacio-lg);
+  flex-wrap: wrap;
+}
+
+.project-card__stack--ancha {
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .project-card--ancha__contenido {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
