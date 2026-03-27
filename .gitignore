@@ -4,3 +4,4 @@ assets/uploads/*
 docker/logs/
 portfolio.sql
 TODO.md
+init.vbs
