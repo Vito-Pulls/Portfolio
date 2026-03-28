@@ -205,7 +205,7 @@ include 'includes/header.php';
             <div class="project-card__header">
                 <span class="project-card__tipo etiqueta">fullstack</span>
                 <div class="project-card__enlaces">
-                    <a href="https://github.com/Vito-Pulls" target="_blank" rel="noopener noreferrer"
+                    <a href="https://github.com/Vito-Pulls/Portfolio" target="_blank" rel="noopener noreferrer"
                         aria-label="Ver código" class="project-card__icono">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5">
