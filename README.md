@@ -116,7 +116,7 @@ Usuario:    victor
 Contraseña: 1959
 ```
 
-> ⚠️ Cambia las credenciales antes de subir a producción.
+> Cambia las credenciales antes de subir a producción.
 
 ## Autor
 
